@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light"> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coisa de Buteco</title>
+  <link rel="icon" type="image/jpg" href="coisa_de_boteco.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="Style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-principal">
+
+  <nav id="navbar-principal" class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Coisa de Buteco</a>
+      <div class="d-flex align-items-center">
+        <button id="theme-toggle" class="btn btn-outline-primary me-2">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+
+        <button id="btn-login" class="btn btn-outline-success me-2"
+                data-bs-toggle="modal" data-bs-target="#loginModal">
+          <i class="bi bi-person-fill"></i> Login
+        </button>
+
+        <div class="dropdown me-2 d-none" id="user-dropdown">
+          <button class="btn btn-success dropdown-toggle" type="button" id="user-menu-button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-check-fill"></i> <span id="user-name-placeholder"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="user-menu-button">
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Minha Conta</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" id="btn-logout">Sair</a></li>
+          </ul>
+        </div>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#porcoes">Porções</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bebidas">Bebidas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <section id="porcoes" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 animate-on-scroll">Nossas Porções</h2>
+      <div id="carrossel-porcoes" class="carousel slide mb-5 mx-auto" data-bs-ride="carousel" style="max-width: 900px;">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-2">
+              <div class="col-4">
+                <img src="https://i.ytimg.com/vi/jh4b0a5ctvk/maxresdefault.jpg" class="d-block w-100 rounded" alt="Torresmo Crocante" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalTorresmo">
+              </div>
+              <div class="col-4">
+                <img src="https://www.supermercadohigas.com.br/blog/capa/capa_000212/59798c2d8e12444e0a827af78355c3fa.jpg" class="d-block w-100 rounded" alt="Fritas com Queijo, Bacon e Cheddar" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalFritas">
+              </div>
+              <div class="col-4">
+                <img src="https://www.culinariadavovo.com.br/wp-content/uploads/2021/08/como-fazer-mandioca-frita-na-airfryer-1024x614.jpg" class="d-block w-100 rounded" alt="Mandioca Frita" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalMandioca">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-4">
+                <img src="https://folhago.com.br/blogs/receitas-faceis/wp-content/uploads/2021/02/frango-a-passarinho-crocante-assado-air-fryer-1.jpeg" class="d-block w-100 rounded" alt="Frango a Passarinho" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalFrango">
+              </div>
+              <div class="col-4">
+                <img src="https://i.pinimg.com/736x/69/1d/1d/691d1da341a874ed09cc294d753b00a9.jpg" class="d-block w-100 rounded" alt="Contra Filé" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalContraFile">
+              </div>
+              <div class="col-4">
+                <img src="https://receitasdepesos.com.br/wp-content/uploads/2024/01/calabresa-acebolada.jpg" class="d-block w-100 rounded" alt="Calabresa Acebolada" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalCalabresa">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-porcoes" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carrossel-porcoes" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalTorresmo">
+            <div class="card-body">
+              <h5 class="card-title">Torresmo Crocante</h5>
+              <p class="card-text">Acompanha mandioca. Perfeito com uma cerveja gelada.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 45,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalFritas">
+            <div class="card-body">
+              <h5 class="card-title">Fritas com Queijo, Bacon e Cheddar</h5>
+              <p class="card-text">A clássica que todo mundo ama, super caprichada.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 45,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalMandioca">
+            <div class="card-body">
+              <h5 class="card-title">Mandioca Frita</h5>
+              <p class="card-text">Mandioca frita crocante, acompanha molho especial da casa.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 38,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalFrango">
+            <div class="card-body">
+              <h5 class="card-title">Frango a Passarinho</h5>
+              <p class="card-text">Frango temperado e frito, servido com alho crocante.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 42,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalContraFile">
+            <div class="card-body">
+              <h5 class="card-title">Contra Filé</h5>
+              <p class="card-text">Contra filé grelhado, acebolado na chapa.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 55,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalCalabresa">
+            <div class="card-body">
+              <h5 class="card-title">Calabresa Acebolada</h5>
+              <p class="card-text">Linguiça calabresa fatiada, acebolada na chapa.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 40,00</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bebidas" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 animate-on-scroll">Nossas Bebidas</h2>
+      
+      <div id="carrossel-bebidas" class="carousel slide mb-5 mx-auto" data-bs-ride="carousel" style="max-width: 900px;">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-2">
+              <div class="col-4">
+                <img src="Imagens/29 Campari cocktails you can make in minutes!.jpeg" class="d-block w-100 rounded" alt="Campari" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalCampari">
+              </div>
+              <div class="col-4">
+                <img src="https://restaurantmojito.de/wp-content/uploads/revslider/startseite/Mojito.jpg" class="d-block w-100 rounded" alt="Caipirinha da Casa" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalCaipirinha">
+              </div>
+              <div class="col-4">
+                <img src="Imagens/Intelligence Artificial_ Tequila.jpeg" class="d-block w-100 rounded" alt="Tequila" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalTequila">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-4">
+                <img src="Imagens/cerveja.jpeg" class="d-block w-100 rounded" alt="Cerveja" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalCerveja">
+              </div>
+              <div class="col-4">
+                <img src="Imagens/Wine in a glass.jpeg" class="d-block w-100 rounded" alt="Vinho" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalVinho">
+              </div>
+              <div class="col-4">
+                <img src="Imagens/Oaxaca Cocktail Recipe _ How to Make the perfect Oaxaca.jpeg" class="d-block w-100 rounded" alt="Whiskey" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalWhiskey">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-4">
+                 <img src="Imagens/ImgParatudo.jpg" class="d-block w-100 rounded" alt="Raízes Amargas" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalRaizes">
+              </div>
+              <div class="col-4">
+                <img src="Imagens/Suco de laranja.jpeg" class="d-block w-100 rounded" alt="Suco de Laranja" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalSuco">
+              </div>
+              <div class="col-4">
+                <img src="Imagens/Consumo diário de 2 ou mais latas de refrigerante pode levar à morte precoce, aponta estudo.jpeg" class="d-block w-100 rounded" alt="Refrigerante" style="height:220px;object-fit:cover;cursor:pointer;" data-bs-toggle="modal" data-bs-target="#modalRefrigerante">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-bebidas" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carrossel-bebidas" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalCampari">
+            <div class="card-body">
+              <h5 class="card-title">Campari</h5>
+              <p class="card-text">Dose de Campari, acompanhada de gelo e fatias de laranja.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 20,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalCaipirinha">
+            <div class="card-body">
+              <h5 class="card-title">Caipirinha da Casa</h5>
+              <p class="card-text">Feita com cachaça artesanal da região. Escolha o sabor.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 18,00</strong>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalTequila">
+            <div class="card-body">
+              <h5 class="card-title">Tequila (Dose)</h5>
+              <p class="card-text">A clássica dose de tequila, servida com sal e limão.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 15,00</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalCerveja">
+            <div class="card-body">
+              <h5 class="card-title">Cerveja (Garrafa 600ml)</h5>
+              <p class="card-text">Sempre bem gelada! Consulte as marcas disponíveis.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 12,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalVinho">
+            <div class="card-body">
+              <h5 class="card-title">Vinho Tinto (Taça)</h5>
+              <p class="card-text">Uma taça do nosso selecionado vinho tinto suave da casa.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 14,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalWhiskey">
+            <div class="card-body">
+              <h5 class="card-title">Whiskey (Dose)</h5>
+              <p class="card-text">Dose de whisky nacional ou importado. Consulte as opções.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 18,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalRaizes">
+            <div class="card-body">
+              <h5 class="card-title">Raízes Amargas (Dose)</h5>
+              <p class="card-text">A tradicional bebida de raízes para abrir o apetite.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 4,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalSuco">
+            <div class="card-body">
+              <h5 class="card-title">Suco de Laranja Natural</h5>
+              <p class="card-text">Suco da fruta, feito na hora para refrescar.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 8,00</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center shadow-sm" data-bs-toggle="modal" data-bs-target="#modalRefrigerante">
+            <div class="card-body">
+              <h5 class="card-title">Refrigerante (Copo)</h5>
+              <p class="card-text">Coca-Cola, Guaraná, Soda ou outros. Consulte.</p>
+            </div>
+            <div class="card-footer">
+              <strong class="fs-5">R$ 6,00</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="eventos" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 animate-on-scroll">Nossos Eventos</h2>
+    <div class="list-group w-75 mx-auto shadow-sm">
+      <div class="list-group-item d-flex justify-content-between align-items-center animate-on-scroll">
+        <div>
+          <h5 class="mb-1">Rodada Dupla de Chopp</h5>
+          <p class="mb-1 text-body-secondary">Toda Quarta, das 18h às 20h.</p>
+        </div>
+        <span class="badge rounded-pill fs-6"><i class="bi bi-cup-straw"></i></span>
+      </div>
+      <div class="list-group-item d-flex justify-content-between align-items-center animate-on-scroll">
+        <div>
+          <h5 class="mb-1">Música ao Vivo</h5>
+          <p class="mb-1 text-body-secondary">Toda Sexta, com o melhor do Samba e MPB.</p>
+        </div>
+        <span class="badge rounded-pill fs-6"><i class="bi bi-music-note-beamed"></i></span>
+      </div>
+      <div class="list-group-item d-flex justify-content-between align-items-center animate-on-scroll">
+        <div>
+          <h5 class="mb-1">Futebol no Telão</h5>
+          <p class="mb-1 text-body-secondary">Todo Sábado, com promoção no balde de cerveja.</p>
+        </div>
+        <span class="badge rounded-pill fs-6"><i class="bi bi-tv-fill"></i></span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="contato" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 animate-on-scroll">Contato e Localização</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="ratio ratio-16x9 shadow rounded">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.1234567890123!2d-47.4912345!3d-18.7456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDQ0JzQ0LjQiUyA0N8KwMjknMjguNSJX!5e0!3m2!1spt-BR!2sbr!4v1678901234567!5m2!1spt-BR!2sbr" title="Localização do Coisa de Buteco" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6 ps-lg-5">
+          <p class="lead"><strong><i class="bi bi-geo-alt-fill"></i> Endereço:</strong><br>Av. Braulino, 1890 - Centro, Monte Carmelo - MG</p>
+          <p class="lead"><strong><i class="bi bi-calendar-week-fill"></i> Funcionamento:</strong><br>Sexta a Domingo, das 17h às 00h.</p>
+          <a href="https://wa.me/message/WNHVBTKPRHO2C1" target="_blank" class="btn btn-success btn-lg mt-3" id="btn-reserva">
+            <i class="bi bi-whatsapp"></i> Fazer Reserva
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-0 text-body-secondary">© 2025 Coisa de Buteco. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  <a id="back-to-top" href="#" class="btn btn-primary rounded-circle shadow-lg">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+
+  <div class="modal fade" id="modalMandioca" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Mandioca Frita</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://www.culinariadavovo.com.br/wp-content/uploads/2021/08/como-fazer-mandioca-frita-na-airfryer-1024x614.jpg" class="img-fluid rounded mb-3" alt="Mandioca Frita em detalhe"><p>Mandioca frita crocante, acompanha molho especial da casa.</p></div></div></div></div>
+  <div class="modal fade" id="modalFrango" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Frango a Passarinho</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://folhago.com.br/blogs/receitas-faceis/wp-content/uploads/2021/02/frango-a-passarinho-crocante-assado-air-fryer-1.jpeg" class="img-fluid rounded mb-3" alt="Frango a Passarinho em detalhe"><p>Frango temperado e frito, servido com alho crocante.</p></div></div></div></div>
+  <div class="modal fade" id="modalContraFile" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Contra Filé</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://i.pinimg.com/736x/69/1d/1d/691d1da341a874ed09cc294d753b00a9.jpg" class="img-fluid rounded mb-3" alt="Contra Filé em detalhe"><p>Contra filé grelhado, acebolado na chapa.</p></div></div></div></div>
+  <div class="modal fade" id="modalCalabresa" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Calabresa Acebolada</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://receitasdepesos.com.br/wp-content/uploads/2024/01/calabresa-acebolada.jpg" class="img-fluid rounded mb-3" alt="Calabresa Acebolada em detalhe"><p>Linguiça calabresa fatiada, acebolada na chapa.</p></div></div></div></div>
+  <div class="modal fade" id="modalTorresmo" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Torresmo Crocante</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://i.ytimg.com/vi/jh4b0a5ctvk/maxresdefault.jpg" class="img-fluid rounded mb-3" alt="Porção de Torresmo em detalhe"><p>Nosso famoso torresmo de rolo, pururucado na hora. Servido com generosos pedaços de mandioca amarela e fatias de limão fresco.</p></div></div></div></div>
+  <div class="modal fade" id="modalFritas" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Fritas com Queijo e Bacon</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://www.supermercadohigas.com.br/blog/capa/capa_000212/59798c2d8e12444e0a827af78355c3fa.jpg" class="img-fluid rounded mb-3" alt="Porção de Fritas com Queijo e Bacon em detalhe"><p>Batatas fritas sequinhas e crocantes, cobertas com uma generosa camada de queijo muçarela derretido e cubos de bacon crocante.</p></div></div></div></div>
+  
+  <div class="modal fade" id="modalCampari" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Campari</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                  <img src="Imagens/29 Campari cocktails you can make in minutes!.jpeg" class="img-fluid rounded mb-3" alt="Campari em detalhe">
+                  <p>Dose de Campari, acompanhada de gelo e fatias de laranja.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="modalCaipirinha" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Caipirinha da Casa</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                  <img src="https://restaurantmojito.de/wp-content/uploads/revslider/startseite/Mojito.jpg" class="img-fluid rounded mb-3" alt="Caipirinha da Casa em detalhe">
+                  <p>Feita com cachaça artesanal da região. Escolha entre limão, morango ou maracujá.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="modalTequila" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tequila (Dose)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="Imagens/Intelligence Artificial_ Tequila.jpeg" class="img-fluid rounded mb-3" alt="Tequila em detalhe">
+                <p>A clássica dose de tequila, servida com sal e limão.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalCerveja" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cerveja (Garrafa 600ml)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="Imagens/cerveja.jpeg" class="img-fluid rounded mb-3" alt="Cerveja em detalhe">
+                <p>Sempre bem gelada! Consulte as marcas disponíveis.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalVinho" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Vinho Tinto (Taça)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="Imagens/Wine in a glass.jpeg" class="img-fluid rounded mb-3" alt="Vinho em detalhe">
+                <p>Uma taça do nosso selecionado vinho tinto suave da casa.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalWhiskey" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Whiskey (Dose)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="Imagens/Oaxaca Cocktail Recipe _ How to Make the perfect Oaxaca.jpeg" class="img-fluid rounded mb-3" alt="Whiskey em detalhe">
+                <p>Dose de whisky nacional ou importado. Consulte as opções.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalRaizes" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Raízes Amargas (Dose)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="Imagens/ImgParatudo.jpg" class="img-fluid rounded mb-3" alt="Raízes Amargas em detalhe">
+                <p>A tradicional bebida de raízes para abrir o apetite.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalSuco" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Suco de Laranja Natural</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="Imagens/Suco de laranja.jpeg" class="img-fluid rounded mb-3" alt="Suco de Laranja em detalhe">
+                <p>Suco da fruta, feito na hora para refrescar.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalRefrigerante" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Refrigerante (Copo)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="Imagens/Consumo diário de 2 ou mais latas de refrigerante pode levar à morte precoce, aponta estudo.jpeg" class="img-fluid rounded mb-3" alt="Refrigerante em detalhe">
+                <p>Coca-Cola, Guaraná, Soda ou outros. Consulte.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Entrar ou Cadastrar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs mb-3" id="loginTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tab-login-tab" data-bs-toggle="tab" data-bs-target="#tab-login" type="button" role="tab" aria-controls="tab-login" aria-selected="true">Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tab-register-tab" data-bs-toggle="tab" data-bs-target="#tab-register" type="button" role="tab" aria-controls="tab-register" aria-selected="false">Cadastro</button>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="tab-login" role="tabpanel" aria-labelledby="tab-login-tab">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="loginEmail" class="form-label">E-mail</label>
+                  <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="loginPassword" class="form-label">Senha</label>
+                  <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <div class="mb-3 text-end">
+                  <button type="button" class="btn btn-link p-0" id="forgotPasswordBtn">Esqueci minha senha</button>
+                </div>
+                <div class="alert alert-danger d-none" id="loginError">Usuário ou senha inválidos!</div>
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="tab-register" role="tabpanel" aria-labelledby="tab-register-tab">
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label for="registerFullName" class="form-label">Nome completo</label>
+                  <input type="text" class="form-control" id="registerFullName" name="fullName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="registerEmail" class="form-label">E-mail</label>
+                  <input type="email" class="form-control" id="registerEmail" name="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="registerPhone" class="form-label">Telefone/WhatsApp</label>
+                  <input type="tel" class="form-control" id="registerPhone" name="phone" required>
+                </div>
+                <div class="mb-3">
+                  <label for="registerPassword" class="form-label">Senha</label>
+                  <input type="password" class="form-control" id="registerPassword" name="password" required>
+                </div>
+                <div class="mb-3">
+                  <label for="registerConfirmPassword" class="form-label">Confirmar senha</label>
+                  <input type="password" class="form-control" id="registerConfirmPassword" required>
+                </div>
+                <div class="mb-3">
+                  <label for="registerAddress" class="form-label">Endereço completo</label>
+                  <input type="text" class="form-control" id="registerAddress" name="address" required>
+                </div>
+                <div class="mb-3">
+                  <label for="registerBirthdate" class="form-label">Data de nascimento</label>
+                  <input type="date" class="form-control" id="registerBirthdate" name="birthdate" required>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="registerTerms" required>
+                  <label class="form-check-label" for="registerTerms">Aceita termos de uso?</label>
+                </div>
+                <div class="alert alert-success d-none" id="registerSuccess">Conta criada com sucesso! Agora faça login.</div>
+                <div class="alert alert-danger d-none" id="registerError"></div>
+                <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="accountModalLabel">Minha Conta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="updateProfileForm">
+              <h6 class="mb-3">Atualizar Informações</h6>
+               <div class="alert d-none" id="updateProfileMessage"></div>
+              <div class="row">
+                  <div class="col-md-6 mb-3">
+                      <label for="accountFullName" class="form-label">Nome Completo</label>
+                      <input type="text" class="form-control" id="accountFullName" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <label for="accountEmail" class="form-label">E-mail</label>
+                      <input type="email" class="form-control" id="accountEmail" required>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 mb-3">
+                      <label for="accountPhone" class="form-label">Telefone</label>
+                      <input type="tel" class="form-control" id="accountPhone" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <label for="accountBirthdate" class="form-label">Data de Nascimento</label>
+                      <input type="date" class="form-control" id="accountBirthdate" required>
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label for="accountAddress" class="form-label">Endereço</label>
+                  <input type="text" class="form-control" id="accountAddress" required>
+              </div>
+              <div class="mb-3">
+                  <label for="accountCurrentPassword" class="form-label">Para salvar, digite sua senha atual</label>
+                  <input type="password" class="form-control" id="accountCurrentPassword" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+          </form>
+          <hr>
+          <div>
+              <h6 class="text-danger">Zona de Perigo</h6>
+              <p>Uma vez que você apaga sua conta, não há como voltar atrás. Por favor, tenha certeza.</p>
+              <button class="btn btn-danger" id="btn-delete-account" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal">Apagar Minha Conta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar Exclusão</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p>Você tem certeza de que deseja apagar sua conta permanentemente?</p>
+          <div class="alert alert-danger d-none" id="deleteError"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="btn-confirm-delete">Sim, apagar minha conta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

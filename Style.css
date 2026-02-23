@@ -1,0 +1,167 @@
+/* ===================================================================== */
+/* =================== DEFINIÇÃO DOS TEMAS E CORES ===================== */
+/* ===================================================================== */
+
+/* As variáveis (--bs-body-bg, --bs-primary, etc.) permitem que os estilos
+   se adaptem automaticamente quando o tema é trocado no HTML. */
+
+/* Tema Claro (Padrão) */
+[data-bs-theme="light"] {
+    --bs-body-bg: #f4f4f4; /* Cor de fundo principal */
+    --bs-body-color: #333333; /* Cor do texto principal */
+    --bs-primary: #B8860B; /* Cor de destaque principal (dourado escuro) */
+    --bs-border-color: #e0e0e0; /* Cor das bordas */
+    --bs-tertiary-bg: #ffffff; /* Cor de fundo para cards, navbar, etc. */
+    --bs-secondary-color: #6c757d; /* Cor de texto secundário */
+}
+
+/* Tema Escuro */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #121212; /* Cor de fundo principal */
+    --bs-body-color: #e0e0e0; /* Cor do texto principal */
+    --bs-primary: #FFD700; /* Cor de destaque principal (dourado claro) */
+    --bs-border-color: #444; /* Cor das bordas */
+    --bs-tertiary-bg: #1e1e1e; /* Cor de fundo para cards, navbar, etc. */
+    --bs-secondary-color: #aaa; /* Cor de texto secundário */
+}
+
+/* ===================================================================== */
+/* ========================= ESTILOS GLOBAIS =========================== */
+/* ===================================================================== */
+
+body {
+    font-family: 'Roboto', sans-serif; /* Define a fonte padrão */
+    padding-top: 70px; /* Adiciona um espaço no topo para compensar a navbar fixa */
+}
+
+/* Estilo para os títulos das seções (H2) */
+h2 {
+    font-family: 'Oswald', sans-serif; /* Fonte diferente para títulos */
+    color: var(--bs-primary); /* Usa a cor primária do tema atual */
+    position: relative;
+    display: inline-block; /* Faz o elemento se comportar como bloco, mas com largura do conteúdo */
+    padding-bottom: 10px; /* Espaço para a linha abaixo */
+}
+
+/* Cria uma linha decorativa abaixo dos títulos H2 */
+h2::after {
+    content: ''; /* Essencial para pseudo-elementos */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza a linha horizontalmente */
+    width: 60px;
+    height: 3px;
+    background-color: var(--bs-primary); /* Usa a cor primária do tema */
+}
+
+/* ===================================================================== */
+/* ====================== COMPONENTES BOOTSTRAP ======================== */
+/* ===================================================================== */
+
+/* Barra de Navegação */
+.navbar {
+    background-color: var(--bs-tertiary-bg) !important; /* Fundo da navbar usa a cor terciária do tema */
+    border-bottom: 1px solid var(--bs-border-color); /* Linha sutil na parte inferior */
+}
+
+/* Links da Navbar */
+.navbar-brand, .nav-link {
+    color: var(--bs-primary) !important; /* Cor dos links usa a cor primária do tema */
+    transition: color 0.2s ease-in-out; /* Transição suave da cor */
+}
+
+/* Efeito ao passar o mouse ou quando o link está ativo */
+.nav-link.active,
+.nav-link:hover {
+    color: var(--bs-primary) !important;
+    font-weight: bold;
+}
+
+/* Estilos para Cards e Itens de Lista */
+.card, .list-group-item {
+    background-color: var(--bs-tertiary-bg); /* Fundo usa a cor terciária do tema */
+    border: 1px solid var(--bs-border-color);
+}
+
+/* Rodapé dos Cards */
+.card-footer {
+    background-color: transparent;
+    border-top: 1px solid var(--bs-border-color);
+    color: var(--bs-primary); /* Preço com a cor de destaque */
+}
+
+/* Emblemas (Badges) dos Eventos */
+.badge {
+    background-color: var(--bs-primary) !important;
+    color: var(--bs-tertiary-bg) !important; /* Cor do texto do badge é a cor de fundo (para contraste) */
+}
+
+/* Rodapé da Página */
+footer {
+    background-color: var(--bs-tertiary-bg);
+    border-top: 1px solid var(--bs-border-color);
+}
+
+/* ===================================================================== */
+/* =================== EFEITOS E ANIMAÇÕES (CSS) ======================= */
+/* ===================================================================== */
+
+/* Efeito de transição suave na Navbar */
+#navbar-principal {
+    transition: background-color 0.4s ease-out, padding 0.4s ease-out;
+}
+
+/* Classe adicionada via JS quando o usuário rola a página */
+.navbar-scrolled {
+    background-color: var(--bs-body-bg) !important; /* Muda o fundo da navbar ao rolar */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Adiciona uma sombra */
+    padding-top: 5px; /* Diminui um pouco a altura */
+    padding-bottom: 5px;
+}
+
+/* Muda a cor dos links na navbar "rolada" para garantir a leitura */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-brand {
+    color: var(--bs-body-color) !important; /* Usa a cor de texto padrão do tema */
+}
+
+/* Muda o cursor para uma 'mãozinha' nos cards que abrem modal */
+#porcoes .card, #bebidas .card {
+    cursor: pointer;
+}
+
+/* Efeito de 'levantar' dos cards com transição suave */
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Move o card 10px para cima */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important; /* Adiciona uma sombra mais forte */
+}
+
+/* Estilos para o botão "Voltar ao Topo" */
+#back-to-top {
+    position: fixed; /* Posição fixa na tela */
+    bottom: 25px;
+    right: 25px;
+    display: none; /* Começa escondido, será mostrado via JS */
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Estilos para a animação "Revelar ao Rolar" */
+.animate-on-scroll {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(30px); /* Começa 30px abaixo da sua posição final */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animação suave */
+}
+
+/* Classe adicionada via JS quando o elemento entra na tela */
+.animate-on-scroll.is-visible {
+    opacity: 1; /* Torna-se visível */
+    transform: translateY(0); /* Volta para sua posição original */
+}
